@@ -29,7 +29,7 @@ public class Seats {
     } catch (NumberFormatException e) {
       System.err.println(e.getMessage());
       return new MarkStatus(false, "좌석 번호 해석 실패");
-    } catch (ArrayIndexOutOfBoundsException e) {
+    } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException e) {
       System.err.println(e.getMessage());
       return new MarkStatus(false, "잘못된 좌석 번호");
     }

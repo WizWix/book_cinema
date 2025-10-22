@@ -55,7 +55,7 @@ public class MainMenu extends AbstractMenu {
     ArrayList<Reservation> rs = Reservation.findByMovieId(String.valueOf(m.id));
     Seats s = new Seats(rs);
     s.show();
-    System.out.print("예매할 좌석 선택> ");
+    System.out.print("예매할 좌석 선택 (예: 'a1')> ");
     String input = ScannerUtil.getStr();
     Seats.MarkStatus res = s.mark(input);
     if (res.isSuccess) {

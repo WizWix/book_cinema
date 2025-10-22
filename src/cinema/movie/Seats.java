@@ -17,6 +17,7 @@ public class Seats {
   }
 
   public MarkStatus mark(String seatName) {
+    if (seatName.length() != 2) return new MarkStatus(false, "잘못된 좌석 번호 형식");
     String sn = seatName.toUpperCase();
     try {
       char row = (char) (sn.charAt(0) - 65); // 0 = A
@@ -31,7 +32,7 @@ public class Seats {
       return new MarkStatus(false, "좌석 번호 해석 실패");
     } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException e) {
       System.err.println(e.getMessage());
-      return new MarkStatus(false, "잘못된 좌석 번호");
+      return new MarkStatus(false, "존재하지 않는 좌석 번호");
     }
   }
 
